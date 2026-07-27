@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURA AI</title>
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand">AURA <span>AI</span></div>
+    <button class="nav active" data-view="dashboard">Dashboard</button>
+    <button class="nav" data-view="campaigns">Campañas</button>
+    <button class="nav" data-view="crm">CRM</button>
+    <button class="nav" data-view="history">Historial</button>
+    <div class="company">Innovaciones Tecnológicas</div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <h1 id="pageTitle">Dashboard</h1>
+        <p>Marketing autónomo y CRM</p>
+      </div>
+      <div class="status">● AURA activa</div>
+    </header>
+
+    <section id="dashboard" class="view active">
+      <div class="stats">
+        <article><span>Campañas</span><strong id="statCampaigns">0</strong></article>
+        <article><span>Prospectos</span><strong id="statLeads">0</strong></article>
+        <article><span>Ganados</span><strong id="statWon">0</strong></article>
+        <article><span>Conversión</span><strong id="statConversion">0%</strong></article>
+      </div>
+      <div class="panel">
+        <h2>Campañas recientes</h2>
+        <div id="recentCampaigns" class="empty">Aún no hay campañas.</div>
+      </div>
+    </section>
+
+    <section id="campaigns" class="view">
+      <div class="panel">
+        <h2>Crear campaña completa</h2>
+        <div class="grid2">
+          <label>Idea
+            <textarea id="idea" placeholder="Ejemplo: Instalación de paneles solares para casas"></textarea>
+          </label>
+          <div>
+            <label>Ciudad<input id="city" value="Mérida, Yucatán"></label>
+            <label>Empresa<input id="company" value="Innovaciones Tecnológicas"></label>
+          </div>
+        </div>
+        <div class="grid2">
+          <label>Objetivo
+            <select id="objective">
+              <option value="leads">Conseguir prospectos</option>
+              <option value="sales">Incrementar ventas</option>
+              <option value="awareness">Posicionamiento</option>
+            </select>
+          </label>
+          <label>Tono
+            <select id="tone">
+              <option value="professional">Profesional</option>
+              <option value="friendly">Cercano</option>
+              <option value="premium">Premium</option>
+            </select>
+          </label>
+        </div>
+        <button id="generateBtn" class="primary">Crear campaña</button>
+      </div>
+
+      <div id="campaignResult" class="panel hidden">
+        <div class="result-head">
+          <div>
+            <small>CAMPAÑA GENERADA</small>
+            <h2 id="campaignName"></h2>
+          </div>
+          <a id="exportLink" class="secondary" target="_blank">Exportar texto</a>
+        </div>
+        <div class="result-grid">
+          <div>
+            <h3>Objetivo</h3>
+            <p id="campaignObjective"></p>
+            <h3>Público objetivo</h3>
+            <ul id="targetAudience"></ul>
+            <h3>Propuesta de valor</h3>
+            <p id="valueProposition"></p>
+          </div>
+          <div>
+            <h3>Flyer generado</h3>
+            <img id="flyerPreview" class="flyer" alt="Flyer generado">
+          </div>
+        </div>
+        <h3>Guion de video</h3>
+        <ol id="videoScript"></ol>
+        <h3>Publicaciones</h3>
+        <div id="socialPosts" class="cards"></div>
+        <h3>Calendario</h3>
+        <div id="calendar" class="timeline"></div>
+      </div>
+    </section>
+
+    <section id="crm" class="view">
+      <div class="panel">
+        <h2>Nuevo prospecto</h2>
+        <div class="grid2">
+          <label>Nombre<input id="leadName"></label>
+          <label>Teléfono<input id="leadPhone"></label>
+          <label>Correo<input id="leadEmail"></label>
+          <label>Servicio<input id="leadService" placeholder="Paneles solares, CCTV..."></label>
+        </div>
+        <label>Notas<textarea id="leadNotes"></textarea></label>
+        <button id="saveLeadBtn" class="primary">Guardar prospecto</button>
+      </div>
+      <div class="panel">
+        <h2>Prospectos</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Nombre</th><th>Servicio</th><th>Teléfono</th><th>Estado</th></tr></thead>
+            <tbody id="leadsTable"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="history" class="view">
+      <div class="panel">
+        <h2>Historial de campañas</h2>
+        <div id="campaignHistory" class="cards"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast"></div>
+  <script src="/assets/app.js"></script>
+</body>
+</html>
